@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alina</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #f9a8d4, #f48fb1, #f06292);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            animation: gradientShift 8s infinite alternate ease-in-out;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background: linear-gradient(to bottom, #f9a8d4, #f48fb1, #f06292);
+            }
+            50% {
+                background: linear-gradient(to bottom, #f06292, #f48fb1, #f9a8d4);
+            }
+            100% {
+                background: linear-gradient(to bottom, #f48fb1, #f9a8d4, #f06292);
+            }
+        }
+
+        h1 {
+            font-size: 4em;
+            color: #ffffff;
+            text-shadow: 0 0 15px #ffffff, 0 0 30px #f06292, 0 0 45px #f06292;
+            animation: glow 2s infinite alternate ease-in-out;
+            margin: 0;
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 15px #ffffff, 0 0 30px #f06292, 0 0 45px #f06292;
+                opacity: 0.8;
+            }
+            100% {
+                text-shadow: 0 0 20px #ffffff, 0 0 40px #f48fb1, 0 0 60px #f48fb1;
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">Аліна ЛОХ</h1>
+    <script>
+        // Add a subtle color change animation to the background
+        let colors = ['#f9a8d4', '#f48fb1', '#f06292'];
+        let currentIndex = 0;
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % colors.length;
+            document.body.style.background = `linear-gradient(to bottom, ${colors[currentIndex]}, ${colors[(currentIndex + 1) % colors.length]})`;
+        }, 8000);
+
+        // Add an event for a playful interaction
+        const title = document.getElementById('title');
+        title.addEventListener('mouseover', () => {
+            title.style.transform = 'rotate(360deg)';
+            title.style.transition = 'transform 1s ease-in-out';
+        });
+        title.addEventListener('mouseout', () => {
+            title.style.transform = 'rotate(0deg)';
+        });
+    </script>
+</body>
+</html>
